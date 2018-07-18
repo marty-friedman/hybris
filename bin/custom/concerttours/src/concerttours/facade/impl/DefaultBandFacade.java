@@ -9,6 +9,7 @@ import concerttours.model.ConcertModel;
 import concerttours.service.BandService;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class DefaultBandFacade implements BandFacade {
@@ -36,7 +37,7 @@ public class DefaultBandFacade implements BandFacade {
             bandData.setTours(bandModel.getTours().stream().map(productModel -> {
                 TourSummaryData tourSummaryData = new TourSummaryData();
                 tourSummaryData.setId(productModel.getCode());
-                tourSummaryData.setName(productModel.getName());
+                tourSummaryData.setName(productModel.getName(Locale.ENGLISH));
                 tourSummaryData.setNumberOfConcerts(
                         (int) productModel.getVariants().stream()
                                 .filter(variantProductModel -> variantProductModel instanceof ConcertModel)

@@ -34,6 +34,7 @@
 				<ref bean="log4jFilter"/>
 				<ref bean="sessionFilter"/>
                 <ref bean="concerttoursMediaFilter"/>
+                <ref bean="concerttoursCatalogVersionActivationFilter"/>
 			</list>
 		</constructor-arg>
 	</bean>
@@ -50,10 +51,9 @@
         <!-- <property name="secureMediasResourcePathPrefix" value="__secure__"/> -->
     </bean>
 
-	<!--
-	 WARNING: 
-	 Do NOT override hybris managers or items within the web module!
-	 Use always the core spring configuration file (concerttours-spring.xml) in
-	 the extensions resources/ directory.
-	 -->
+    <bean id="concerttoursCatalogVersionActivationFilter"
+          class="de.hybris.platform.servicelayer.web.SimpleCatalogVersionActivationFilter">
+        <property name="catalogVersionService" ref="catalogVersionService"/>
+        <property name="activeCatalogVersions" value="concertoursProductCatalog:Online"/>
+    </bean>
 </beans>
