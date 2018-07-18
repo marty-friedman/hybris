@@ -2,6 +2,7 @@
 /temp/
 /data/
 /bin/platform/tomcat/
+/bin/platform/eclipsebin/
 /bin/ext-accelerator
 /bin/ext-addon
 /bin/ext-atdd

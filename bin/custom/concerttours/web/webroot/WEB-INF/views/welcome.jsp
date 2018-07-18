@@ -6,8 +6,6 @@
           media="screen, projection"/>
 </head>
 <div class="container">
-    <img src="<c:url value="${logoUrl}" />" alt="Hybris platform logo"/>
-
     <h2>Welcome to "concerttours" extension</h2>
 
     <h3><b>Getting started</b></h3>
