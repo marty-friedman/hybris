@@ -76,5 +76,20 @@
 				</attribute>
 			</attributes>
 		</itemtype>
+
+		<itemtype code="News">
+			<deployment table="News" typecode="30270"/>
+			<attributes>
+				<attribute qualifier="date" type="java.util.Date">
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="headline" type="java.lang.String">
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="content" type="java.lang.String">
+					<persistence type="property"/>
+				</attribute>
+			</attributes>
+		</itemtype>
 	</itemtypes>
 </items>
