@@ -14,8 +14,8 @@ public class DefaultTourFacade implements TourFacade {
     private ProductService productService;
 
     @Override
-    public TourData getTourDetails(String id) {
-        ProductModel productModel = productService.getProductForCode(id);
+    public TourData getTourDetails(final String id) {
+        final ProductModel productModel = productService.getProductForCode(id);
         TourData tourData = new TourData();
         tourData.setName(productModel.getName(Locale.ENGLISH));
         tourData.setDescription(productModel.getDescription());
@@ -25,7 +25,7 @@ public class DefaultTourFacade implements TourFacade {
                     .filter(variantProductModel -> variantProductModel instanceof ConcertModel)
                     .map(variantProductModel -> (ConcertModel) variantProductModel)
                     .map(concertModel -> {
-                        ConcertSummaryData concertSummaryData = new ConcertSummaryData();
+                        final ConcertSummaryData concertSummaryData = new ConcertSummaryData();
                         concertSummaryData.setDate(concertModel.getDate());
                         concertSummaryData.setId(concertModel.getCode());
                         concertSummaryData.setVenue(concertModel.getVenue());
@@ -38,7 +38,7 @@ public class DefaultTourFacade implements TourFacade {
         return tourData;
     }
 
-    public void setProductService(ProductService productService) {
+    public void setProductService(final ProductService productService) {
         this.productService = productService;
     }
 }

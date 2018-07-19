@@ -9,7 +9,7 @@ import java.time.ZonedDateTime;
 
 public class ConcertDaysUntilAttributeHandler extends AbstractDynamicAttributeHandler<Long, ConcertModel> {
     @Override
-    public Long get(ConcertModel model) {
+    public Long get(final ConcertModel model) {
         if (model.getDate() == null)
             return null;
         final ZonedDateTime concertDateTime = model.getDate().toInstant().atZone(ZoneId.systemDefault());

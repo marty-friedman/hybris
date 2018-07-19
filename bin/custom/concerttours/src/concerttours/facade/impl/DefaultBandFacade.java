@@ -21,12 +21,12 @@ public class DefaultBandFacade implements BandFacade {
     }
 
     @Override
-    public BandData getBand(String id) {
+    public BandData getBand(final String id) {
         return convertModelToData(bandService.getBandForCode(id));
     }
 
-    private BandData convertModelToData(BandModel bandModel) {
-        BandData bandData = new BandData();
+    private BandData convertModelToData(final BandModel bandModel) {
+        final BandData bandData = new BandData();
         bandData.setAlbumsSold(bandModel.getAlbumSales());
         bandData.setDescription(bandModel.getHistory());
         bandData.setId(bandModel.getCode());
@@ -35,7 +35,7 @@ public class DefaultBandFacade implements BandFacade {
             bandData.setGenres(bandModel.getTypes().stream().map(MusicType::getCode).collect(Collectors.toList()));
         if (bandModel.getTours() != null) {
             bandData.setTours(bandModel.getTours().stream().map(productModel -> {
-                TourSummaryData tourSummaryData = new TourSummaryData();
+                final TourSummaryData tourSummaryData = new TourSummaryData();
                 tourSummaryData.setId(productModel.getCode());
                 tourSummaryData.setName(productModel.getName(Locale.ENGLISH));
                 tourSummaryData.setNumberOfConcerts(
@@ -49,7 +49,7 @@ public class DefaultBandFacade implements BandFacade {
         return bandData;
     }
 
-    public void setBandService(BandService bandService) {
+    public void setBandService(final BandService bandService) {
         this.bandService = bandService;
     }
 }

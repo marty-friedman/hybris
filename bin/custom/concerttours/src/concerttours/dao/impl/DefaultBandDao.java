@@ -22,7 +22,7 @@ public class DefaultBandDao implements BandDao {
     }
 
     @Override
-    public List<BandModel> getBandsByCode(String code) {
+    public List<BandModel> getBandsByCode(final String code) {
         final String queryString = "SELECT " + BandModel.PK + " FROM {" + BandModel._TYPECODE + "} " +
                 "WHERE {" + BandModel.CODE + "} = ?code";
         final FlexibleSearchQuery query = new FlexibleSearchQuery(queryString);

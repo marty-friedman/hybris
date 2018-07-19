@@ -17,8 +17,8 @@ public class DefaultBandService implements BandService {
     }
 
     @Override
-    public BandModel getBandForCode(String code) {
-        List<BandModel> bandModels = bandDao.getBandsByCode(code);
+    public BandModel getBandForCode(final String code) {
+        final List<BandModel> bandModels = bandDao.getBandsByCode(code);
         if (bandModels.isEmpty())
             throw new UnknownIdentifierException("No band found for code: " + code);
         if (bandModels.size() > 1)
@@ -26,7 +26,7 @@ public class DefaultBandService implements BandService {
         return bandModels.get(0);
     }
 
-    public void setBandDao(BandDao bandDao) {
+    public void setBandDao(final BandDao bandDao) {
         this.bandDao = bandDao;
     }
 }
