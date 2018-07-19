@@ -1,4 +1,4 @@
-package concerttours.eventlisteners;
+package concerttours.listeners;
 
 import concerttours.model.BandModel;
 import concerttours.model.NewsModel;
