@@ -47,7 +47,7 @@ public class BandAlbumSalesEventListenerIntegrationTest extends ServicelayerTest
     /**
      * Assert that the news are publishing when saving a band with hube amount of album sales
      */
-    @Test
+    //@Test
     public void testEventSending() {
         final BandModel band = modelService.create(BandModel.class);
         band.setCode(BAND_CODE);
@@ -55,6 +55,24 @@ public class BandAlbumSalesEventListenerIntegrationTest extends ServicelayerTest
         band.setHistory(BAND_HISTORY);
         band.setAlbumSales(MANY_ALBUMS_SOLD);
         modelService.save(band);
+        final NewsModel news = findLastNews();
+        assertNotNull("News are null", news);
+        assertTrue("Unexpected news: " + news.getHeadline(), news.getHeadline().contains(BAND_NAME));
+    }
+
+    /**
+     * Assert that the news are publishing when saving a band with hube amount of album sales
+     */
+    @Test
+    public void testEventSendingAsync() throws Exception {
+        final BandModel band = modelService.create(BandModel.class);
+        band.setCode(BAND_CODE);
+        band.setName(BAND_NAME);
+        band.setHistory(BAND_HISTORY);
+        band.setAlbumSales(MANY_ALBUMS_SOLD);
+        modelService.save(band);
+
+        Thread.sleep(2000L);
         final NewsModel news = findLastNews();
         assertNotNull("News are null", news);
         assertTrue("Unexpected news: " + news.getHeadline(), news.getHeadline().contains(BAND_NAME));
