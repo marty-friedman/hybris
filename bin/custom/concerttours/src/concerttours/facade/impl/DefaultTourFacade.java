@@ -29,6 +29,7 @@ public class DefaultTourFacade implements TourFacade {
                         concertSummaryData.setDate(concertModel.getDate());
                         concertSummaryData.setId(concertModel.getCode());
                         concertSummaryData.setVenue(concertModel.getVenue());
+                        concertSummaryData.setDaysLeft(concertModel.getDaysUntil());
                         if (concertModel.getConcertType() != null)
                             concertSummaryData.setType(concertModel.getConcertType().getCode());
                         return concertSummaryData;

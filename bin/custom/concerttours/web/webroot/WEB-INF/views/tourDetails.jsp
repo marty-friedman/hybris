@@ -12,9 +12,21 @@
         <p>${tour.description}</p>
         <p>Schedule:</p>
         <table>
-            <tr><th>Venue</th><th></th><th>Date</th></tr>
+            <tr><th>Venue</th><th></th><th>Date</th><th>Days left</th></tr>
             <c:forEach var="concert" items="${tour.concerts}">
-                <tr><td>${concert.venue}</td><td>${concert.type}</td><td><fmt:formatDate pattern="dd MMM yyyy" value="${concert.date}" /></td></tr>
+                <tr><td>${concert.venue}</td><td>${concert.type}</td><td><fmt:formatDate pattern="dd MMM yyyy" value="${concert.date}" /></td><td>
+                    <c:choose>
+                        <c:when test="${empty concert.daysLeft}">
+                            No info
+                        </c:when>
+                        <c:when test="${concert.daysLeft eq 0}">
+                            Passed
+                        </c:when>
+                        <c:otherwise>
+                            ${concert.daysLeft}
+                        </c:otherwise>
+                    </c:choose>
+                </td></tr>
             </c:forEach>
         </table>
         <a href="../bands">Back to Band List</a>

@@ -21,6 +21,7 @@
 		<property name="venue" type="String"/>
 		<property name="date" type="java.util.Date"/>
 		<property name="type" type="String"/>
+		<property name="daysLeft" type="Long"/>
 	</bean>
 
 	<bean class="concerttours.data.TourData">
