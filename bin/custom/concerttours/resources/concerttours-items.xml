@@ -92,5 +92,15 @@
 				</attribute>
 			</attributes>
 		</itemtype>
+
+		<itemtype code="NotLoremIpsumConstraint" extends="AttributeConstraint">
+			<description>Custom constraint which checks for Lorem Ipsum text.</description>
+			<attributes>
+				<attribute qualifier="annotation" type="java.lang.Class" redeclare="true">
+					<modifiers write="false" initial="true" optional="false" />
+					<defaultvalue>concerttours.constraints.NotLoremIpsum.class</defaultvalue>
+				</attribute>
+			</attributes>
+		</itemtype>
 	</itemtypes>
 </items>
