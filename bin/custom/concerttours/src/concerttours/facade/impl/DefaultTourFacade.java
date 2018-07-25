@@ -7,7 +7,6 @@ import concerttours.model.ConcertModel;
 import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.platform.product.ProductService;
 
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class DefaultTourFacade implements TourFacade {
@@ -17,7 +16,7 @@ public class DefaultTourFacade implements TourFacade {
     public TourData getTourDetails(final String id) {
         final ProductModel productModel = productService.getProductForCode(id);
         TourData tourData = new TourData();
-        tourData.setName(productModel.getName(Locale.ENGLISH));
+        tourData.setName(productModel.getName());
         tourData.setDescription(productModel.getDescription());
         tourData.setId(productModel.getCode());
         if (productModel.getVariants() != null)

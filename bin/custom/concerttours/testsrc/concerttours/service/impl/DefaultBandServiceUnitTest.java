@@ -6,10 +6,7 @@ import de.hybris.platform.servicelayer.exceptions.AmbiguousIdentifierException;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.assertSame;
 import static org.mockito.Mockito.mock;
@@ -35,7 +32,7 @@ public class DefaultBandServiceUnitTest {
         bandModel.setCode(TEST_BAND_CODE);
         bandModel.setName(TEST_BAND_NAME);
         bandModel.setAlbumSales(null);
-        bandModel.setHistory(TEST_BAND_HISTORY);
+        bandModel.setHistory(TEST_BAND_HISTORY, Locale.ENGLISH);
     }
 
     /**

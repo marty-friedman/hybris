@@ -1,7 +1,7 @@
-A001;yRock;1000000;Occasional tribute rock band comprising senior managers from a leading commerce software vendor;rock,eighties
-A006;yBand;;Dutch tribute rock band formed in 2013 playing classic rock tunes from the sixties, seventies and eighties;rock,sixties,seventies,eighties,maleVocals
-A003;yJazz;7;Experimental Jazz group from London playing many musical notes together in unexpected combinations and sequences;jazz,femaleVocals
-A004;Banned;427;Rejuvenated Polish boy band from the 1990s - this genre of pop music at its most dubious best;nineties,maleVocals,pop
-A002;Sirken;2000;A cappella singing group based in Munich, an uplifting blend of traditional and contemporaneous songs;choral,pop
-A005;The Choir;49000;Enthusiastic, noisy gospel choir singing traditional gospel songs from the deep south;gospel
-A007;The Quiet;1200;English choral society specialising in beautifully arranged, soothing melodies and songs;choral,classical
+A001;yRock;1000000;rock,eighties
+A006;yBand;;rock,sixties,seventies,eighties,maleVocals
+A003;yJazz;7;jazz,femaleVocals
+A004;Banned;427;nineties,maleVocals,pop
+A002;Sirken;2000;choral,pop
+A005;The Choir;49000;gospel
+A007;The Quiet;1200;choral,classical

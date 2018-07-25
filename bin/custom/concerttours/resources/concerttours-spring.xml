@@ -30,7 +30,7 @@
 	</bean>
 
 	<alias name="defaultNewsService" alias="newsService"/>
-	<bean name="defaultNewsService" class="concerttours.service.impl.DefaultNewsService">
+	<bean id="defaultNewsService" class="concerttours.service.impl.DefaultNewsService">
 		<property name="newsDao" ref="newsDao"/>
 	</bean>
 
@@ -44,7 +44,7 @@
 		<property name="productService" ref="productService"/>
 	</bean>
 
-    <bean name="sendNewsJob" class="concerttours.jobs.SendNewsJob" parent="abstractJobPerformable">
+    <bean id="sendNewsJob" class="concerttours.jobs.SendNewsJob" parent="abstractJobPerformable">
         <property name="newsService" ref="newsService"/>
     </bean>
 </beans>
