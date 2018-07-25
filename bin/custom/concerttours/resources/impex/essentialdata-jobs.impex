@@ -6,7 +6,7 @@ INSERT_UPDATE Trigger;cronjob(code)[unique=true];cronExpression
 
 INSERT_UPDATE Script;code[unique=true];scriptType(code);content
                     ;clearOldConcerts;GROOVY;"import de.hybris.platform.cronjob.enums.*\u000A import de.hybris.platform.servicelayer.cronjob.PerformResult\u000A import de.hybris.platform.servicelayer.search.*\u000A import de.hybris.platform.servicelayer.model.*\u000A import de.hybris.platform.catalog.enums.ArticleApprovalStatus\u000A import concerttours.model.ConcertModel\u000A searchService = spring.getBean(""flexibleSearchService"")\u000A modelService = spring.getBean(""modelService"")\u000A query = new FlexibleSearchQuery(""Select {${ConcertModel.PK}} from {${ConcertModel._TYPECODE}}"");\u000A searchService.search(query).getResult().each {\u000A if (it.daysUntil < 1) {\u000A it.approvalStatus = ArticleApprovalStatus.CHECK\u000A }\u000A modelService.saveAll()\u000A }"
-INSERT_UPDATE ScriptingJob;code[unique= true ];scriptURI
+INSERT_UPDATE ScriptingJob;code[unique= true];scriptURI
                           ;clearOldConcertsJob;model://clearOldConcerts
 INSERT_UPDATE CronJob;code[unique= true];job(code);sessionLanguage(isocode)
                      ;clearOldConcertsCronJob;clearOldConcertsJob;en
