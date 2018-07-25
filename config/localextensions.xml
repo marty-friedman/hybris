@@ -3,5 +3,6 @@
         <path dir='${HYBRIS_BIN_DIR}' autoload='false' />
         <extension name="concerttours"/>
         <extension name="platformbackoffice"/>
+        <extension name="platformwebservices"/>
     </extensions>
 </hybrisconfig>
