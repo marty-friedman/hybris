@@ -1,0 +1,3 @@
+INSERT_UPDATE MediaFormat;qualifier[unique=true];name
+                         ;bandListMediaFormat;Band List Format (100x100px)
+                         ;bandDetailsMediaFormat;Band Detail Format (500x500px)

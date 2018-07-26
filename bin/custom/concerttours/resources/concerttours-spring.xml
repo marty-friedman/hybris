@@ -35,8 +35,9 @@
 	</bean>
 
 	<alias name="defaultBandFacade" alias="bandFacade"/>
-	<bean id="defaultBandFacade" class="concerttours.facade.impl.DefaultBandFacade">
+	<bean id="defaultBandFacade" class="concerttours.facade.impl.DefaultBandFacade" depends-on="mediaService">
 		<property name="bandService" ref="bandService"/>
+		<property name="mediaService" ref="mediaService"/>
 	</bean>
 
 	<alias name="defaultTourFacade" alias="tourFacade"/>

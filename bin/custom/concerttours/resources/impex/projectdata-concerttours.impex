@@ -3,12 +3,20 @@ $supercategories=supercategories(code, $catalogVersion)
 $baseProduct=baseProduct(code,$catalogVersion)
 $approved=approvalstatus(code)[default='approved']
 $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Online'])[unique=true,default=$productCatalog:Online]
+$mediaResourcesDir=jar:concerttours.constants.ConcerttoursConstants&/concerttours/bandimages
 
 INSERT_UPDATE MusicType;code[unique=true]
 #% impex.includeExternalData(ImpExManager.class.getResourceAsStream("/impex/csv/concerttours-musicTypes.csv"), "UTF-8", 0);
 
+INSERT_UPDATE MediaContainer;qualifier[unique=true];name;$catalogVersion
+#% impex.includeExternalData(ImpExManager.class.getResourceAsStream("/impex/csv/concerttours-mediaContainers.csv"), "UTF-8", 0);
+
+INSERT_UPDATE Media;code[unique=true];mediaFormat(qualifier);mediaContainer(qualifier);@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/png'];$catalogVersion
+                   ;yRock-small;bandListMediaFormat;yRockMediaContainer;$mediaResourcesDir/yRockSmall.png
+                   ;yRock-big;bandDetailsMediaFormat;yRockMediaContainer;$mediaResourcesDir/yRockBig.png
+
 # Common data
-INSERT_UPDATE Band;code[unique=true];name;albumSales;types(code)
+INSERT_UPDATE Band;code[unique=true];name;albumSales;types(code);image(qualifier)
 #% impex.includeExternalData(ImpExManager.class.getResourceAsStream("/impex/csv/concerttours-bands.csv"), "UTF-8", 0);
 # English version
 INSERT_UPDATE Band;code[unique=true];history[lang=en]

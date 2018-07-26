@@ -1,7 +1,7 @@
-A001;yRock;1000000;rock,eighties
-A006;yBand;;rock,sixties,seventies,eighties,maleVocals
-A003;yJazz;7;jazz,femaleVocals
-A004;Banned;427;nineties,maleVocals,pop
-A002;Sirken;2000;choral,pop
-A005;The Choir;49000;gospel
-A007;The Quiet;1200;choral,classical
+A001;yRock;1000000;rock,eighties;yRockMediaContainer
+A006;yBand;;rock,sixties,seventies,eighties,maleVocals;
+A003;yJazz;7;jazz,femaleVocals;
+A004;Banned;427;nineties,maleVocals,pop;
+A002;Sirken;2000;choral,pop;
+A005;The Choir;49000;gospel;
+A007;The Quiet;1200;choral,classical;
