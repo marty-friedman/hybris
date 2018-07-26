@@ -15,7 +15,7 @@ public class NewBandEventListener extends AbstractEventListener<AfterItemCreatio
     private ModelService modelService;
 
     @Override
-    protected void onEvent(AfterItemCreationEvent event) {
+    protected void onEvent(final AfterItemCreationEvent event) {
         if (event == null || event.getSource() == null)
             return;
         final Object object = modelService.get(event.getSource());

@@ -11,11 +11,11 @@ public class DefaultNewsService implements NewsService {
     private NewsDao newsDao;
 
     @Override
-    public List<NewsModel> getNewsForDay(Date date) {
+    public List<NewsModel> getNewsForDay(final Date date) {
         return newsDao.getNewsForDay(date);
     }
 
-    public void setNewsDao(NewsDao newsDao) {
+    public void setNewsDao(final NewsDao newsDao) {
         this.newsDao = newsDao;
     }
 }

@@ -1,4 +1,5 @@
-package concerttours.events;
+package concerttours.listeners;
+import concerttours.events.BandAlbumSalesEvent;
 import de.hybris.platform.servicelayer.event.impl.AbstractEventListener;
 import de.hybris.platform.servicelayer.model.ModelService;
 import java.util.Date;

@@ -9,17 +9,19 @@ import concerttours.model.ConcertModel;
 import concerttours.service.BandService;
 import de.hybris.platform.core.model.media.MediaContainerModel;
 import de.hybris.platform.core.model.media.MediaFormatModel;
+import de.hybris.platform.servicelayer.config.ConfigurationService;
 import de.hybris.platform.servicelayer.media.MediaService;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class DefaultBandFacade implements BandFacade {
-    private static final String LIST_MEDIA_FORMAT = "bandListMediaFormat";
-    private static final String DETAILS_MEDIA_FORMAT = "bandDetailsMediaFormat";
+    private static final String LIST_MEDIA_FORMAT = "concerttours.band.list.media.format";
+    private static final String DETAILS_MEDIA_FORMAT = "concerttours.band.details.media.format";
 
     private BandService bandService;
     private MediaService mediaService;
+    private ConfigurationService configurationService;
 
     @Override
     public List<BandData> getBands() {
@@ -33,7 +35,7 @@ public class DefaultBandFacade implements BandFacade {
         return convertModelToData(bandService.getBandForCode(id), DETAILS_MEDIA_FORMAT);
     }
 
-    private BandData convertModelToData(final BandModel bandModel, String mediaFormat) {
+    private BandData convertModelToData(final BandModel bandModel, final String mediaFormat) {
         final BandData bandData = new BandData();
         bandData.setAlbumsSold(bandModel.getAlbumSales());
         bandData.setDescription(bandModel.getHistory());
@@ -58,18 +60,23 @@ public class DefaultBandFacade implements BandFacade {
         return bandData;
     }
 
-    private String getImageUrl(BandModel model, String format) {
-        MediaContainerModel container = model.getImage();
+    private String getImageUrl(final BandModel model, final String formatName) {
+        final MediaContainerModel container = model.getImage();
+        final MediaFormatModel format = mediaService.getFormat(configurationService.getConfiguration().getString(formatName));
         if (container == null)
             return null;
-        return mediaService.getMediaByFormat(container, mediaService.getFormat(format)).getDownloadURL();
+        return mediaService.getMediaByFormat(container, format).getDownloadURL();
     }
 
     public void setBandService(final BandService bandService) {
         this.bandService = bandService;
     }
 
-    public void setMediaService(MediaService mediaService) {
+    public void setMediaService(final MediaService mediaService) {
         this.mediaService = mediaService;
+    }
+
+    public void setConfigurationService(final ConfigurationService configurationService) {
+        this.configurationService = configurationService;
     }
 }

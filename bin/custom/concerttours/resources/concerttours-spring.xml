@@ -14,7 +14,7 @@
 		<property name="modelService" ref="modelService" />
 	</bean>
 
-	<bean id="bandAlbumSalesEventListener" class="concerttours.events.BandAlbumSalesEventListener" parent="abstractEventListener" >
+	<bean id="bandAlbumSalesEventListener" class="concerttours.listeners.BandAlbumSalesEventListener" parent="abstractEventListener" >
 		<property name="modelService" ref="modelService" />
 	</bean>
 
@@ -38,6 +38,7 @@
 	<bean id="defaultBandFacade" class="concerttours.facade.impl.DefaultBandFacade" depends-on="mediaService">
 		<property name="bandService" ref="bandService"/>
 		<property name="mediaService" ref="mediaService"/>
+		<property name="configurationService" ref="configurationService"/>
 	</bean>
 
 	<alias name="defaultTourFacade" alias="tourFacade"/>
